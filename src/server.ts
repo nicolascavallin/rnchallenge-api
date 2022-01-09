@@ -3,7 +3,7 @@ import serviceAccount from "../react-native-challenge-13ae2-firebase-adminsdk-c8
 import app from "./app";
 import { logger } from "./logger";
 
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
   logger.info(`App running in port ${PORT}`);
