@@ -1,4 +1,5 @@
-import { json, Request, Response, Router } from "express";
+import { json, Request, Response, Router, urlencoded } from "express";
+import fileUpload from "express-fileupload";
 import PhonesRoute from "./phones.route";
 
 const router = Router();
@@ -8,6 +9,7 @@ router.use("/api", apiRoute);
 
 // Middlewares
 apiRoute.use(json());
+apiRoute.use(fileUpload({ useTempFiles: true }));
 
 apiRoute.use("/phones", PhonesRoute);
 
